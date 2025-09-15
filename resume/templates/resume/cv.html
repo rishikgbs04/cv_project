@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }} - CV</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        h1, h2 { color: #2c3e50; }
+        h1 { margin-bottom: 0; }
+        h2 { margin-top: 25px; }
+        ul { margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <h1>{{ name }}</h1>
+    <p><strong>{{ title }}</strong></p>
+    <p>Email: {{ email }} | Phone: {{ phone }} | {{ location }}</p>
+    <p><a href="{{ linkedin }}">LinkedIn</a> | <a href="{{ github }}">GitHub</a></p>
+
+    <h2>Professional Summary</h2>
+    <p>{{ summary }}</p>
+
+    <h2>Skills</h2>
+    <ul>
+        {% for skill in skills %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Education</h2>
+    <ul>
+        {% for edu in education %}
+        <li>{{ edu.degree }} - {{ edu.school }} ({{ edu.year }}) {% if edu.gpa %}- GPA: {{ edu.gpa }}{% endif %}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Experience</h2>
+    {% for job in experience %}
+        <p><strong>{{ job.role }}</strong> — {{ job.company }} ({{ job.years }})</p>
+        <ul>
+            {% for detail in job.details %}
+            <li>{{ detail }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+    <h2>Projects</h2>
+    <ul>
+        {% for proj in projects %}
+        <li><strong>{{ proj.name }}</strong>: {{ proj.desc }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Leadership & Extras</h2>
+    <ul>
+        {% for extra in extras %}
+        <li>{{ extra }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }} - CV</title>
+</head>
+<body>
+    <h1>{{ name }}</h1>
+    <p>Email: {{ email }} | Phone: {{ phone }}</p>
+
+    <h2>Education</h2>
+    <ul>
+        {% for edu in education %}
+        <li>{{ edu.degree }} - {{ edu.school }} ({{ edu.year }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Experience</h2>
+    <ul>
+        {% for job in experience %}
+        <li>{{ job.role }} at {{ job.company }} ({{ job.years }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
