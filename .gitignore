@@ -1,0 +1,13 @@
+# OS junk
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Env
+.venv/
+
+# Django
+db.sqlite3
+
