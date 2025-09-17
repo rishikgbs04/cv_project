@@ -2,7 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.cv_view, name='cv'),     
-    path('cv/', views.cv_view, name='cv'),  
+    path('', views.cv_view, name='cv'),   # only ONE route
 ]
 
